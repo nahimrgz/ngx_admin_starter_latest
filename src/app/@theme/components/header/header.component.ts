@@ -38,14 +38,14 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   currentTheme = 'default';
 
-  userMenu = [ { title: 'Profile' }, { title: 'Log out' } ];
+  userMenu = [{ title: 'Profile' }, { title: 'Log out' }];
 
   constructor(private sidebarService: NbSidebarService,
-              private menuService: NbMenuService,
-              private themeService: NbThemeService,
-              private userService: UserData,
-              private layoutService: LayoutService,
-              private breakpointService: NbMediaBreakpointsService) {
+    private menuService: NbMenuService,
+    private themeService: NbThemeService,
+    private userService: UserData,
+    private layoutService: LayoutService,
+    private breakpointService: NbMediaBreakpointsService) {
   }
 
   ngOnInit() {
@@ -90,5 +90,22 @@ export class HeaderComponent implements OnInit, OnDestroy {
   navigateHome() {
     this.menuService.navigateHome();
     return false;
+  }
+
+  saveMyNumbers() {
+
+  }
+
+  showMyNumbers() {
+    if (localStorage.getItem('numbersSelected')) {
+      const numbers = JSON.parse(localStorage.getItem('numbersSelected'));
+      if (numbers[1] > numbers[0]) {
+        alert(`Tus números son el ${numbers[0]} y el ${numbers[1]}`);
+      } else {
+        alert(`Tus números son el ${numbers[1]} y el ${numbers[0]}`);
+      }
+    } else {
+      alert('Aún no has seleccionado ningún numero');
+    }
   }
 }

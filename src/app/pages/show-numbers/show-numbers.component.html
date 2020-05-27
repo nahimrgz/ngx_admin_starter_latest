@@ -1,0 +1,21 @@
+<div class="row">
+    <div class="col-12">
+        <div class="row">
+            <div *ngFor="let number of numbers"  class="col-sm-6 col-lg-3 col-xxl-2">
+                <nb-card >
+                    <nb-card-body class="d-flex justify-content-center">
+                        <div>
+                            <h1>{{number.value}}</h1>
+                        </div>
+                    </nb-card-body>
+                    <nb-card-footer class="p-2 d-flex justify-content-center">
+                        <div>
+                            <button (click)="addNumber(number.value)" nbButton status="success">Apartar</button>
+                            <button (click)="removeNumber(number.value)" class="ml-2" nbButton status="danger">Quitar</button>
+                        </div>
+                    </nb-card-footer>
+                </nb-card>
+            </div>
+        </div>
+    </div>
+</div>

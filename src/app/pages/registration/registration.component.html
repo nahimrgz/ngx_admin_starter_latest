@@ -1,0 +1,38 @@
+<div class="row">
+    <div class="col-sm-12 d-flex justify-content-center">
+        <nb-card class="col-lg-4 col-sm-12">
+            <nb-card-header>
+                <div class="row">
+                    <h3>¡Gracias por participar!</h3>
+                </div>
+            </nb-card-header>
+            <nb-card-body>
+                <p>Por favor ingresa tu datos de contácto. </p>
+                <div class="row">
+                    <div class="col-12">
+                        <label class="label">Nombre: </label>
+                        <input nbInput fullWidth type="text" [(ngModel)]="user.name">
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <label class="label">Número Celular:</label>
+                        <input nbInput fullWidth type="tel" [(ngModel)]="user.phone" placeholder="6141234567">
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <!-- Recapcha -->
+                </div>
+                <div class="row mt-3">
+                    <p>Tus números son {{numbersSelected[0]}} y el {{numbersSelected[1]}}. Después de registrar tus boletos me pondré en contacto contigo por medio de Whatsapp más tardar en 24 horas.</p>
+                    <p>¡Mucha suerte!</p>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-12 d-flex justify-content-center">
+                        <button (click)="saveTickets()" nbButton status="success">¡Apartar mis boletos ya!</button>
+                    </div>
+                </div>
+            </nb-card-body>
+        </nb-card>
+    </div>
+</div>

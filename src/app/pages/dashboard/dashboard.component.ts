@@ -1,85 +1,49 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
 
 
 
 @Component({
   selector: 'ngx-dashboard',
+  styleUrls: ['./dashboard.component.scss'],
   templateUrl: './dashboard.component.html',
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit {
+  imageObject: Array<object> = [{
+    image: 'assets/images/agv/img1.webp',
+    thumbImage: 'assets/images/agv/img1_min.jpg',
+    alt: 'alt agv k1',
+  }, {
+    image: 'assets/images/agv/img2.webp',
+    thumbImage: 'assets/images/agv/img2_min.jpg',
+    alt: 'alt agv k1',
+  },
+  {
+    image: 'assets/images/agv/img3.webp',
+    thumbImage: 'assets/images/agv/img3_min.jpg',
+    alt: 'alt agv k1',
+  },
+  {
+    image: 'assets/images/agv/img4.webp',
+    thumbImage: 'assets/images/agv/img4_min.jpg',
+    alt: 'alt agv k1',
+  },
+  {
+    image: 'assets/images/agv/img5.webp',
+    thumbImage: 'assets/images/agv/img5_min.jpg',
+    alt: 'alt agv k1',
+  },
+  {
+    image: 'assets/images/agv/img6.webp',
+    thumbImage: 'assets/images/agv/img6_min.jpg',
+    alt: 'alt agv k1',
+  },
+];
 
-  settings = {
-    add: {
-      addButtonContent: '<i class="nb-plus"></i>',
-      createButtonContent: '<i class="nb-checkmark"></i>',
-      cancelButtonContent: '<i class="nb-close"></i>',
-    },
-    edit: {
-      editButtonContent: '<i class="nb-edit"></i>',
-      saveButtonContent: '<i class="nb-checkmark"></i>',
-      cancelButtonContent: '<i class="nb-close"></i>',
-    },
-    delete: {
-      deleteButtonContent: '<i class="nb-trash"></i>',
-      confirmDelete: true,
-    },
-    columns: {
-      id: {
-        title: 'ID',
-        type: 'number',
-      },
-      firstName: {
-        title: 'First Name',
-        type: 'string',
-      },
-      lastName: {
-        title: 'Last Name',
-        type: 'string',
-      },
-      username: {
-        title: 'Username',
-        type: 'string',
-      },
-      email: {
-        title: 'E-mail',
-        type: 'string',
-      },
-      age: {
-        title: 'Age',
-        type: 'number',
-      },
-    },
-  };
+imgSize= {width: 372, height: 496};
 
-  source: LocalDataSource = new LocalDataSource();
+  ngOnInit() {
 
-  constructor() {
-    const data = [{
-      id: 1,
-      firstName: 'Mark',
-      lastName: 'Otto',
-      username: '@mdo',
-      email: 'mdo@gmail.com',
-      age: '28',
-    }, {
-      id: 2,
-      firstName: 'Jacob',
-      lastName: 'Thornton',
-      username: '@fat',
-      email: 'fat@yandex.ru',
-      age: '45',
-    }
-    ]
-    this.source.load(data);
-  }
-
-  onDeleteConfirm(event): void {
-    if (window.confirm('Are you sure you want to delete?')) {
-      event.confirm.resolve();
-    } else {
-      event.confirm.reject();
-    }
   }
 
 }

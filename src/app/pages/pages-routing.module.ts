@@ -4,6 +4,9 @@ import { NgModule } from '@angular/core';
 import { PagesComponent } from './pages.component';
 import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ShowNumbersComponent } from './show-numbers/show-numbers.component';
+import { RegistrationComponent } from './registration/registration.component';
+import { ValideNumberComponent } from './validate-number/valide-number.component';
 
 const routes: Routes = [{
   path: '',
@@ -12,6 +15,18 @@ const routes: Routes = [{
     {
       path: 'dashboard',
       component: DashboardComponent,
+    },
+    {
+      path: 'show_numbers',
+      component: ShowNumbersComponent,
+    },
+    {
+      path: 'registration',
+      component: RegistrationComponent,
+    },
+    {
+      path: 'validation',
+      component: ValideNumberComponent,
     },
     {
       path: 'miscellaneous',
