@@ -1,8 +1,8 @@
-<div class="row">
+<div class="row overflow-auto">
     <div class="col-12">
-        <div class="row">
-            <div *ngFor="let number of numbers"  class="col-sm-6 col-lg-3 col-xxl-2">
-                <nb-card >
+        <div class="row ">
+            <div *ngFor="let number of numbers; let i = index" class="col-sm-6 col-lg-3 col-xxl-2">
+                <nb-card>
                     <nb-card-body class="d-flex justify-content-center">
                         <div>
                             <h1>{{number.value}}</h1>
@@ -10,12 +10,23 @@
                     </nb-card-body>
                     <nb-card-footer class="p-2 d-flex justify-content-center">
                         <div>
-                            <button (click)="addNumber(number.value)" nbButton status="success">Apartar</button>
-                            <button (click)="removeNumber(number.value)" class="ml-2" nbButton status="danger">Quitar</button>
+                            <button *ngIf="!number.actived" (click)="addNumber(number.value, i)" nbButton
+                                status="info">Lo quiero</button>
+                            <button *ngIf="number.actived" (click)="removeNumber(number.value, i)" class="ml-2" nbButton
+                                status="danger">No lo quiero</button>
                         </div>
                     </nb-card-footer>
                 </nb-card>
             </div>
         </div>
+    </div>
+</div>
+<div class="row sticky-top">
+    <div class="col-12">
+            <div class="d-flex justify-content-center m-2">
+                <div>
+                    <button [routerLink]="['/pages/registration']"  nbButton status="success">Apartar mis números</button>
+                </div>
+            </div>
     </div>
 </div>

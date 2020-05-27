@@ -12,19 +12,18 @@ export class ShowNumbersComponent implements OnInit {
 
   ngOnInit(): void {
     for (let i = 0; i < 100; i++) {
-      this.numbers.push({value: `${i}`});
+      this.numbers.push({value: `${i}`, actived: false});
     }
   }
 
-  addNumber(numberValue) {
+  addNumber(numberValue, index) {
     if (this.numbersSelected.length < 2) {
       this.numbersSelected.push(+numberValue);
+      this.numbers[index].actived = true;
       this.setLocalStorage();
     } else {
       alert('Unicamente puedes seleccionar dos números');
     }
-    console.log(this.numbersSelected);
-    
   }
 
   setLocalStorage() {
@@ -36,12 +35,13 @@ export class ShowNumbersComponent implements OnInit {
     }
   }
 
-  removeNumber(numberValue) {
+  removeNumber(numberValue, index) {
     const numberSelectedIndex = this.numbersSelected.indexOf(+numberValue);
     if (numberSelectedIndex !== -1 ) {
       this.numbersSelected.splice(numberSelectedIndex, 1);
       this.setLocalStorage();
-      alert(`Quitaste el número ${numberValue} de tu lista`);
+      this.numbers[index].actived = false;
+     // alert(`Quitaste el número ${numberValue} de tu lista`);
     }
   }
 }

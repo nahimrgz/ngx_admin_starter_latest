@@ -1,9 +1,9 @@
 <nb-card>
   <div class="row">
     <div class="col-sm-12 ">
-     <div class="d-flex justify-content-center card-header p-0">
-      <h1>Gran Rifa</h1>
-     </div>
+      <div class="d-flex justify-content-center card-header p-0">
+        <h1>Gran rifa de casco AGV K1</h1>
+      </div>
     </div>
   </div>
   <div class="row">
@@ -14,47 +14,52 @@
       <nb-card-body>
         <div class="d-flex justify-content-center">
           <div class="col-12">
-            <ng-image-slider [images]="imageObject" [imageSize]="imgSize" [slideImage]="1" #nav></ng-image-slider>
+            <ng-image-slider [images]="imageObject" [imageSize]="imgSize" [slideImage]="1"  #nav></ng-image-slider>            
           </div>
         </div>
       </nb-card-body>
     </div>
-    <div class="col-sm-12 col-lg-6" >
-      <div class="m-3">
+    <div class="col-sm-12 col-lg-6">
+      <!-- <div class="m-3">
         <h6>Participa para ganar un:</h6>
-      </div>
-      
+      </div>      
         <div>
-          <h1>Agv K1 Tavullia VR46 con 2 micas de regalo (Nuevo)</h1>
-          <p class="price">Con un costo de $ 5400.00 MXN</p>
+          <h6 class="m-3">Agv K1 VR46 con mica oscura de regalo</h6>
+          <p>Con un costo de $ 5200.00 MXN</p>
+        </div> -->
+      <div class="row">
+        <div class="col-12">
+          <p>Con un costo de $ 5200.00 MXN</p>
+          <p>Que se entregará al poseedor del boleto cuyo número coincida con las últimas dos cifras de la lotería
+            nacional del sorteo del día 29 de Junio del 2020. </p>
         </div>
-        <div class="row">
-          <div class="col-12">
-            <p>Que se entregará al poseedor del boleto cuyo número coincida con las últimas dos cifras de la lotería nacional del sorteo del día 29 de Junio del 2020. </p>
-            <p>
-              El sorteo únicamente se realizará hasta que se haya vendido un 85% de los boletos.
-            </p>
+      </div>
+      <div class="row mt-5">
+        <div class="col-sm-12 ">
+          <div class="d-flex justify-content-center">
+            <h1 style="text-align: center;">Costo: 2 boletos por $150.00 MXN</h1>
           </div>
         </div>
-        <div class="row mt-5">
-          <div class="col-sm-12 ">
-           <div class="d-flex justify-content-center">
-            <h1>Costo: 2 boletos por $150.00 MXN</h1>
-           </div>
+      </div>
+      <div class="row mt-1">
+        <div class="col-sm-12 ">
+          <div class="d-flex justify-content-center">
+            <button nbButton status="success" [routerLink]="['/pages/show_numbers']"> Quiero mis boletos</button>
           </div>
         </div>
-        <div class="row mt-1">
-          <div class="col-sm-12 ">
-           <div class="d-flex justify-content-center">
-            <button nbButton status="success"  [routerLink]="['/pages/show_numbers']" > Quiero mis boletos</button>
-           </div>
-          </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col-sm-12">
+          <p>Puedes hacer el pago de tus boletos por medio de transferencia a esta cuenta clabe: <strong>012 180
+              01531105623 5</strong> a nombre de Nahim A. Rodriguez Cadena</p>
+          <p>
+            * El sorteo únicamente se realizará hasta que se haya vendido un 85% de los boletos.
+          </p>
+          <p>
+            ** Boleto no pagado no participa.
+          </p>
         </div>
-        <div class="row mt-3">
-          <div class="col-sm-12">
-            <p>Puedes hacer el pago de tus boletos por medio de transferencia a esta cuenta clabe: <strong>012 180 01531105623 5</strong> a nombre de Nahim A. Rodriguez Cadena</p>
-          </div>
-        </div>
+      </div>
     </div>
   </div>
 </nb-card>

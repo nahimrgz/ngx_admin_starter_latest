@@ -10,9 +10,10 @@ import { LocalDataSource } from 'ng2-smart-table';
 })
 export class DashboardComponent implements OnInit {
   imageObject: Array<object> = [{
-    image: 'assets/images/agv/img1.webp',
+    image: 'assets/images/agv/img1_min.jpg',
     thumbImage: 'assets/images/agv/img1_min.jpg',
     alt: 'alt agv k1',
+    title: 'Hummingbirds are amazing creatures'
   }, {
     image: 'assets/images/agv/img2.webp',
     thumbImage: 'assets/images/agv/img2_min.jpg',

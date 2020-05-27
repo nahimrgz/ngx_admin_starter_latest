@@ -7,7 +7,7 @@ import { ok } from 'assert';
   styleUrls: ['./registration.component.scss'],
 })
 export class RegistrationComponent implements OnInit {
-  user: any = {name: '', phone: ''};
+  user: any = {name: '', phone: '', plusResult: 0};
   numbersSelected: number[] = [];
   constructor() { }
 
@@ -22,7 +22,7 @@ export class RegistrationComponent implements OnInit {
     if ( msg !== 'OK') {
       alert(`Error: ${msg}, por favor valida tus datos`)
     } else {
-      console.log('All OKEY');
+      console.log('All OKEY', this.user);
     }
   }
 
@@ -36,7 +36,15 @@ export class RegistrationComponent implements OnInit {
     if (this.numbersSelected.length !== 2) {
       return 'numbers not selected';
     }
+    if((this.numbersSelected[0] + this.numbersSelected[1]) !== +this.user.plusResult){
+     return 'la suma es incorrecta';      
+    }
+    
     return 'OK';
   }
+
+//   resolved(captchaResponse: string) {
+//     console.log(`Resolved captcha with response: ${captchaResponse}`);
+// }
 
 }
