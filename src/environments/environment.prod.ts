@@ -5,4 +5,5 @@
  */
 export const environment = {
   production: true,
+  URL_SERVICIOS: 'https://nahimrgz-agv-draw.herokuapp.com/api/v1',
 };
