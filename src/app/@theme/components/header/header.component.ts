@@ -54,7 +54,14 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.userService.getUsers()
       .pipe(takeUntil(this.destroy$))
       .subscribe((users: any) => this.user = users.nick);
-
+      const { sm } = this.breakpointService.getBreakpointsMap();
+      this.menuService.onItemSelect() 
+            .pipe(takeUntil(this.destroy$))
+            .subscribe((event: { tag: string, item: any }) => {
+              if (document.documentElement.clientWidth < sm){
+                this.sidebarService.collapse('menu-sidebar');
+              }
+          });
     const { xl } = this.breakpointService.getBreakpointsMap();
     this.themeService.onMediaQueryChange()
       .pipe(
@@ -90,22 +97,5 @@ export class HeaderComponent implements OnInit, OnDestroy {
   navigateHome() {
     this.menuService.navigateHome();
     return false;
-  }
-
-  saveMyNumbers() {
-
-  }
-
-  showMyNumbers() {
-    if (localStorage.getItem('numbersSelected')) {
-      const numbers = JSON.parse(localStorage.getItem('numbersSelected'));
-      if (numbers[1] > numbers[0]) {
-        alert(`Tus números son el ${numbers[0]} y el ${numbers[1]}`);
-      } else {
-        alert(`Tus números son el ${numbers[1]} y el ${numbers[0]}`);
-      }
-    } else {
-      alert('Aún no has seleccionado ningún numero');
-    }
   }
 }

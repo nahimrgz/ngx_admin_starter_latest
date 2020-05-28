@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'ngx-show-numbers',
@@ -8,12 +9,18 @@ import { Component, OnInit } from '@angular/core';
 export class ShowNumbersComponent implements OnInit {
   numbersSelected: number[] = [];
   numbers: any[] = [];
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-    for (let i = 0; i < 100; i++) {
-      this.numbers.push({value: `${i}`, actived: false});
-    }
+    // for (let i = 0; i < 100; i++) {
+    //   this.numbers.push({value: `${i}`, actived: false});
+    // }
+
+    this.userService.getNumbersAvailable()
+      .subscribe(res => this.numbers = res);
+
+      this.userService.getCantOcupados()
+      .subscribe(res => console.log(res[0]));
   }
 
   addNumber(numberValue, index) {
